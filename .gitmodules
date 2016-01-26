@@ -1,3 +1,4 @@
 [submodule "src"]
 	path = src
-	url = git@github.com:grobian/carbon-c-relay.git
+	url = https://github.com/grobian/carbon-c-relay.git
+	branch = master
