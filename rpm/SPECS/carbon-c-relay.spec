@@ -42,6 +42,7 @@ make install PREFIX=$RPM_BUILD_ROOT/usr DESTDIR=$RPM_BUILD_ROOT/etc/carbon
 install -m 644 %{_topdir}/carbon-c-relay.conf $RPM_BUILD_ROOT/etc/carbon/carbon-c-relay.conf
 install -D -m 644 %{_topdir}/carbon-c-relay.sysconfig $RPM_BUILD_ROOT/etc/sysconfig/carbon-c-relay
 install -D -m 755 %{_topdir}/carbon-c-relay.init $RPM_BUILD_ROOT/etc/rc.d/init.d/carbon-c-relay
+install -D -m 664 %{_topdir}/carbon-c-relay.service $RPM_BUILD_ROOT/etc/systemd/system/carbon-c-relay.service
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,9 +64,11 @@ fi
 %doc $RPM_BUILD_DIR/src/README.md
 %{_sbindir}/carbon-c-relay
 %attr(755, root, root) /etc/rc.d/init.d/carbon-c-relay
+%attr(664, root, root) /etc/systemd/system/carbon-c-relay.service
 %attr(644, root, root) %config(noreplace) %{_sysconfdir}/carbon/carbon-c-relay.conf
 %attr(644, root, root) %config(noreplace) %{_sysconfdir}/sysconfig/carbon-c-relay
 
 %changelog
+* Wed Jan 27 2015 Damien Claveau <damien.claveau@gmail.com>
 * Wed Jan 21 2015 Jose Riguera <jriguera@gmail.com>
 - %{name} %{version}
