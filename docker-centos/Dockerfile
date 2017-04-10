@@ -9,7 +9,7 @@ RUN git clone https://github.com/damienclaveau/carbon-c-relay_packages /tmp/carb
 WORKDIR /tmp/carbon-c-relay
 RUN git submodule update --init --recursive
 RUN make rpmbuild
-RUN yum -y install /tmp/carbon-c-relay/rpm/RPMS/x86_64/carbon-c-relay-1.5-1.el7.centos.x86_64.rpm
+RUN yum -y install /tmp/carbon-c-relay/rpm/RPMS/x86_64/carbon-c-relay-3.0-1.el7.centos.x86_64.rpm
 
 
 ADD ./start.sh /usr/local/bin/start.sh
